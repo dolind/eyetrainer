@@ -7,4 +7,5 @@ There are different stereograms that can be selected.
 
 ## Background
 
-More background can be found in http://localhost:3537/posts/projects/eyetrainer/how-to-fight-computer-eye-strain.html
+More background can be found in
+https://www.storymelange.com/posts/projects/eyetrainer/how-to-fight-computer-eye-strain.html
