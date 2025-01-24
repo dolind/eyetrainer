@@ -3,14 +3,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Orthoptics App',
+      title: 'Eyetrainer',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       home: GraphScreen(),
@@ -77,7 +77,11 @@ class _GraphScreenState extends State<GraphScreen> {
   Widget build(BuildContext context) {
     List<int> subtypeOptions = _graphType == 2 ? [0, 1, 2] : [0, 1, 2, 3];
 
-    if (Platform.isAndroid || Platform.isIOS) {
+    if (kIsWeb) {
+      double manualDpi = 96; // Adjust for your system's actual DPI
+      mmToPixel = manualDpi * 0.0393701;
+    }
+    else  if (Platform.isAndroid || Platform.isIOS) {
       // For mobile platforms, use the devicePixelRatio from MediaQuery
       double dpi = MediaQuery.of(context).devicePixelRatio *
           45; // should be 160
